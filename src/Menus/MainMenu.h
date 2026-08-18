@@ -2,4 +2,5 @@
 
 namespace Menus {
     void registerMenus();
+    void resetForms();
 }

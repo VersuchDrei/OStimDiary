@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameActor.h"
+#include "GameActorBase.h"
 #include "GameRecord.h"
 
 namespace GameAPI {
@@ -12,5 +13,7 @@ namespace GameAPI {
 
         inline bool contains(GameActor actor) const { return actor.form->IsInFaction(form); }
         int getRank(GameActor actor) const;
+        inline bool contains(GameActorBase actor) const { return actor.form->IsInFaction(form); }
+        int getRank(GameActorBase actor) const;
     };
 }

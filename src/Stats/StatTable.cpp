@@ -6,6 +6,8 @@ namespace Stats {
     const char* STATS_FILE_PATH{"Data/SKSE/Plugins/OStimDiary.json"};
 
     void StatTable::loadStats(OStim::GraphInterface* graph) {
+        statList.loadFile("OStim.esp", 0xA03);
+
         if (!graph) {
             return;
         }

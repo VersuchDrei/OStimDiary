@@ -16,7 +16,7 @@ namespace Menus {
         static ImGuiMCP::ImGuiTableFlags flags = ImGuiMCP::ImGuiTableFlags_Resizable | ImGuiMCP::ImGuiTableFlags_Reorderable | ImGuiMCP::ImGuiTableFlags_Hideable | ImGuiMCP::ImGuiTableFlags_RowBg | ImGuiMCP::ImGuiTableFlags_BordersOuter |
                                                  ImGuiMCP::ImGuiTableFlags_BordersV | ImGuiMCP::ImGuiTableFlags_NoBordersInBody | ImGuiMCP::ImGuiTableFlags_ScrollY;
 
-        void renderLine(GameAPI::GameFaction total, GameAPI::GameList unique) {
+        static void renderLine(GameAPI::GameFaction total, GameAPI::GameList unique) {
             int totalValue = total ? total.getRank(GameAPI::GameActor::getPlayer()) : 0;
             if (totalValue < 0) {
                 totalValue = 0;
@@ -39,8 +39,8 @@ namespace Menus {
         void __stdcall render() {
             if (ImGuiMCP::BeginTable("playerStats", 3, flags)) {
                 ImGuiMCP::TableSetupColumn("");
-                ImGuiMCP::TableSetupColumn("total");
-                ImGuiMCP::TableSetupColumn("unique");
+                ImGuiMCP::TableSetupColumn(LocaleManager::GetSingleton()->Translate("$ostim_diary_total").c_str());
+                ImGuiMCP::TableSetupColumn(LocaleManager::GetSingleton()->Translate("$ostim_diary_unique").c_str());
                 ImGuiMCP::TableHeadersRow();
 
                 for (Stats::Stat& stat : Stats::StatTable::getStats()) {

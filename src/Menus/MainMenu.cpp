@@ -21,4 +21,8 @@ namespace Menus {
         registerPartnerStatsMenu(section);
         registerRankingsMenu(section);
     }
+
+    void resetForms() {
+        resetPartnerStatForms();
+    }
 }
