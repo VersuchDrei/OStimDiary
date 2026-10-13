@@ -28,8 +28,8 @@ namespace {
 }
 
 
-SKSEPluginLoad(const SKSE::LoadInterface *skse) {
-    SKSE::Init(skse);
+SKSE_EXPORT bool SKSEPlugin_Load(const SKSE::LoadInterface* skse) {
+    SKSE::Init(skse, SKSE::InitInfo{});
     SKSE::GetMessagingInterface()->RegisterListener(MessageHandler);
     SetupLog();
     logger::info("Plugin loaded");
